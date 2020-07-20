@@ -10,7 +10,7 @@ var url = "mongodb://localhost:27017/DR";
 var MongoClient = require('mongodb').MongoClient;
 var i;
 var obj =[];
-for (i = 0; i < 5000; i++){
+for (i = 0; i < 20000; i++){
   obj.push({
     messages : i.toString(),
     status: null,

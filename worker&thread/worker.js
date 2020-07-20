@@ -30,7 +30,7 @@ let sentToOperator = (query,obj)=>{
       message: '',
       operater: 'AIS'
     }
-    // console.log(query)
+    console.log(params_str)
     try {
           var db = query.db("SMS");
           let collection = db.collection('smid');
@@ -44,7 +44,7 @@ let sentToOperator = (query,obj)=>{
       }
   }).catch(function (error) {
     // handle error
-    console.log(error.code);
+    console.log('api',error);
   })
 }
 
@@ -56,10 +56,10 @@ let  operator = async (obj)=>{
 
     // if (isMainThread) {
       for (let i = 0;i<chunk.length;i++){
-        for (let j =0;j<chunk[i].length;j++){
-          // console.log(chunk[i][j].messages);
-          sentToOperator(query,chunk[i][j])
-        }
+          for (let j =0;j<chunk[i].length;j++){
+            // console.log(chunk[i][j].messages);
+            sentToOperator(query,chunk[i][j])
+          }
       }
       // Listen for messages from the worker and print them.
       // worker.on('message', (msg) => { console.log(msg); });
